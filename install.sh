@@ -230,7 +230,7 @@ case $OSTYPE in
         ;;
     *)
         # Assume .run (makeself) for others
-        if false 2>&1 ; then
+        if which sudo >/dev/null 2>&1 ; then
             # use "sudo" if available
             sudo bash "$TEMP_FILE" -- -y
         else
