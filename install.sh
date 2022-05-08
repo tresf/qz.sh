@@ -194,8 +194,9 @@ case $ARCH in
 esac
 
 if [ -z "$DOWNLOAD_URL" ]; then
-    echo -e "${RED}Unable to locate a download for this platform${PLAIN}"
-    exit 2
+    echo -e "${RED}Unable to locate a download for this platform, falling back to Intel${PLAIN}"
+    DOWNLOAD_URL=$(echo "$AMD64_URLS" |head -1)
+    # exit 2
 fi
 
 echo -e "Downloading ${BLUE}${DOWNLOAD_URL}${PLAIN}..."
